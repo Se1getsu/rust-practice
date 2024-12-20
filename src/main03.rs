@@ -23,6 +23,9 @@ pub fn main03() {
 
     // ダングリングポインタ
     dangle();
+
+    // スライス型 &str
+    slicing();
 }
 
 fn movement() {
@@ -110,4 +113,28 @@ fn dangle() {
     }
 }
 
+fn slicing() {
+    // スライス型は、元のデータの途中からの参照と長さを保持する。
+    // String のスライス
+    let mut s = String::from("");
+    s.push_str("hello world");
 
+    let word = first_word(&s);
+    // s.clear(); // word が不変借用しているので s に変更を加えられない
+    println!("word: {}", word); // hello
+
+    fn first_word(s: &String) -> &str { // スライス &str は借用の一種
+        let bytes = s.as_bytes();
+        for (i, &item) in bytes.iter().enumerate() {
+            if item == b' ' {
+                return &s[0..i];
+            }
+        }
+        &s[..]
+    }
+
+    // i32 型配列のスライス
+    let a = [1, 2, 3, 4, 5];
+    let slice = &a[2..];
+    println!("{}", slice[0]); // 3
+}
