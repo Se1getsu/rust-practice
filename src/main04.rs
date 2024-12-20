@@ -5,7 +5,7 @@ struct Rectangle {  // 構造体
 }
 
 impl Rectangle {
-    // static メソッドのようなもの
+    // 【関連関数】 static メソッドのようなもの
     fn square(width: u32) -> Self {
         Self {
             width,  // "width: width" のように同じ名前の変数の場合は省略して書ける
@@ -13,16 +13,17 @@ impl Rectangle {
         }
     }
 
-    // メソッドのようなもの Pythonのように最初に self がつく
+    // 【メソッド】 Pythonのように最初に self がつく
     fn area(&self) -> u32 {
         self.height * self.width
     }
 
-    // 自分に対して変更を加えるメソッドのようなもの
+    // 自身に変更を加える場合は &mut self とする
+    // あくまで可変借用してフィールドの値を書き換えているだけ
+    // Swift の mutating func のように全く別のものに置き換えることはできない
     fn set_width(&mut self, width: u32) {
         self.width = width;
     }
-
 }
 
 pub fn main04() {
