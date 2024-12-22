@@ -19,10 +19,11 @@ impl Rectangle {
     }
 
     // 自身に変更を加える場合は &mut self とする
-    // あくまで可変借用してフィールドの値を書き換えているだけ
-    // Swift の mutating func のように全く別のものに置き換えることはできない
     fn set_width(&mut self, width: u32) {
+        // フィールドだけを書き換えたり
         self.width = width;
+        // 全く別のものに置き換えることも可能
+        *self = Self::square(width);
     }
 }
 
