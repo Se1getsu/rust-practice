@@ -5,6 +5,7 @@ use main04::main04;
 use main05::main05;
 use main06::main06;
 use main07::main07;
+use main08::main08;
 
 mod main01;
 mod main02;
@@ -13,6 +14,7 @@ mod main04;
 mod main05;
 mod main06;
 mod main07;
+mod main08;
 
 fn main() {
     // 変数と型
@@ -29,4 +31,6 @@ fn main() {
     main06();
     // 文字列
     main07();
+    // ハッシュマップ
+    main08();
 }
