@@ -7,6 +7,7 @@ use main06::main06;
 use main07::main07;
 use main08::main08;
 use main09::main09;
+use main10::main10;
 
 mod main01;
 mod main02;
@@ -17,6 +18,7 @@ mod main06;
 mod main07;
 mod main08;
 mod main09;
+mod main10;
 
 fn main() {
     // 変数と型
@@ -37,4 +39,6 @@ fn main() {
     main08();
     // panic!, Result
     main09();
+    // ジェネリクス, トレイト
+    main10();
 }
